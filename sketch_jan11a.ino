@@ -11,7 +11,6 @@ DFRobot_AS7341::sModeTwoData_t data2;
 #define class_3 6
 #define class_4 5
 #define class_5 4
-
 int pot_val;
 
 void setup() {
