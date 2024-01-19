@@ -21,7 +21,7 @@ ripeness_index = {
 }
 
 try:
-    model = load_model(r"C:\Users\Akshatt\Desktop\V&F Rip\Serial\my_model.keras")
+    model = load_model(r"\my_model.keras")
     print("Model loaded successfully.")
 except (OSError, IOError):
     print("Model not found. Training a new one.")
@@ -42,7 +42,7 @@ except (OSError, IOError):
     print("Model trained and saved.")
 
 def run():
-    data = pd.read_csv(r"C:\Users\Akshatt\Desktop\V&F Rip\Serial\produce_color_database.csv")
+    data = pd.read_csv(r"\produce_color_database.csv")
     features = data.iloc[:, :10].values
     labels = data.iloc[:, 10].values
     
@@ -70,13 +70,13 @@ def run():
     
     data.at[data.index[-1], 'prediction'] = predicted_ripeness[0]    
     print("\n RIPENESS LABEL: ",ripeness_index[data.at[data.index[-1], 'prediction']])
-    data.to_csv(r"C:\Users\Akshatt\Desktop\V&F Rip\Serial\produce_color_database.csv", index=False)
+    data.to_csv(r"\produce_color_database.csv", index=False)
 
 try:
     while True:
         data = huhu.readline().decode('utf-8').strip()
         print(f'Received data: {data}')
-        with open(r"C:\Users\Akshatt\Desktop\V&F Rip\Serial\produce_color_database.csv", 'a', newline='') as f:
+        with open(r"\produce_color_database.csv", 'a', newline='') as f:
             writer = csv.writer(f)
             writer.writerow([(x) for x in data.split(',')])
         run()
