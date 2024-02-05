@@ -62,7 +62,7 @@ class Ripeness_Detection:
 
          
     def save_model(self):
-        self.model.save(r"C:\Users\Akshatt\Desktop\V&F Rip\Test Backups\testmodel2.keras")
+        self.model.save(r"testmodel.keras")
     def Neural_Network(self, save):
         self.define_and_assign_labels()
         self.scale_data_and_define_inputs()
